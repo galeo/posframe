@@ -487,6 +487,9 @@ you can use `posframe-delete-all' to delete all posframes."
           :y-pixel-offset ,y-pixel-offset))
        parent-frame-width parent-frame-height)
 
+      ;; Prevent window margins
+      (set-window-margins (get-buffer-window posframe-buffer t) 0 0)
+
       ;; Delay hide posframe when timeout is a number.
       (posframe--run-timeout-timer posframe timeout)
 
